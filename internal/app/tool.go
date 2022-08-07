@@ -6,13 +6,11 @@ import (
 	"fmt"
 )
 
-type User struct{}
-
-type repo struct {
+type core struct {
 	db *sql.DB
 }
 
-func (c repo) Health(ctx context.Context) (err error) {
+func (c core) Health(ctx context.Context) (err error) {
 	if err = c.db.PingContext(ctx); err != nil {
 		return fmt.Errorf("db ping: %w", err)
 	}

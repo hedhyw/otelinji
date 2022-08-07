@@ -11,6 +11,16 @@ OpenTelemetry auto-instrumentation tool. It generates code with added OpenTeleme
 
 It injects a common open-telemetry block to all exported functions.
 
+```diff
+ func (c repo) Health(ctx context.Context) (err error) {
++       ctx, span := otel.Tracer("app").Start(ctx, "repo.Health")
++       defer func() { otelinji.EndSpanWithErr(span, err) }()
++
+        if err = c.db.PingContext(ctx); err != nil {
+                return fmt.Errorf("db ping: %w", err)
+        }
+```
+
 For example, if we have a function:
 
 ```golang
