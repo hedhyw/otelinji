@@ -9,7 +9,6 @@ tasks:
   test:
     desc: Run tests.
     cmds:
-      - defer: { cmd: rm -f coverage.out }
       - go test
         -covermode=count
         -coverprofile=coverage.out

@@ -1,0 +1,36 @@
+name: check-otelinj
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Go
+        uses: actions/setup-go@v2
+        with:
+          go-version: "1.18.5"
+        id: go
+
+      - name: Check out code into the Go module directory
+        uses: actions/checkout@v3
+
+      - name: Install Task
+        uses: arduino/setup-task@v1
+        with:
+          version: 3.14.0
+
+      - name: Lint
+        run: task lint
+
+      - name: Test
+        run: task test
+
+      - uses: shogo82148/actions-goveralls@v1
+        with:
+          path-to-profile: coverage.out

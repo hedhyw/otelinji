@@ -1,0 +1,63 @@
+build:
+  binary: otelinji
+  main: ./cmd/otelinji
+  goos:
+    - windows
+    - darwin
+    - linux
+  goarch:
+    - "386"
+    - amd64
+    - arm
+    - arm64
+  goarm:
+    - "6"
+  ignore:
+    - goos: darwin
+      goarch: "386"
+  env:
+    - CGO_ENABLED=0
+
+gomod:
+  proxy: true
+
+archives:
+  - name_template: "{{.Binary}}_{{.Os}}_{{.Arch}}"
+    files:
+      - README.md
+      - LICENSE
+    format_overrides:
+      - goos: windows
+        format: zip
+
+release:
+  draft: true
+
+snapshot:
+  name_template: "{{.Tag}}"
+
+checksum:
+  name_template: "task_checksums.txt"
+
+nfpms:
+  - vendor: Task
+    homepage: https://github.com/hedhyw/otelinji
+    maintainer: Maksym Kryvchun <hedhyw@yahoo.com>
+    description: OpenTelemetry auto-instrumentation tool for Golang.
+    license: MIT
+    formats:
+      - deb
+      - rpm
+    file_name_template: "{{.ProjectName}}_{{.Os}}_{{.Arch}}"
+
+brews:
+  - name: otelinji
+    description: OpenTelemetry auto-instrumentation tool for Golang.
+    license: MIT
+    homepage: https://github.com/hedhyw/homebrews
+    tap:
+      owner: hedhyw
+      name: homebrew-otelinji
+    test: system "#{bin}/otelinji", "-help"
+    install: |-
+      bin.install "otelinji"
