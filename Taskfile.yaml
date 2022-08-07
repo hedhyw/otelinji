@@ -8,11 +8,11 @@ vars:
 
 tasks:
   check:
-    desc: Run all checks.
+    desc: "Run all checks."
     deps: ["test", "lint", "lint:gherkin"]
 
   test:
-    desc: Run tests.
+    desc: "Run tests."
     cmds:
       - go test
         -covermode=count
@@ -53,3 +53,8 @@ tasks:
     desc: "Run command. Example: `task run -- --help`"
     cmds:
       - go run cmd/otelinji/main.go {{.CLI_ARGS}}
+
+  build:
+    desc: "Build the application."
+    cmds:
+      - go build -o ./bin/otelinji cmd/otelinji/main.go

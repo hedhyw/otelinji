@@ -26,10 +26,30 @@ Features:
 
 ## Installation
 
+### MacOS/Linux HomeBrew
+
+```sh
+brew install hedhyw/main/otelinji
+```
+
+### Deb/Rpm
+
+Latest DEB and RPM packages are available on [the releases page](https://github.com/hedhyw/otelinji/releases/latest).
+
 ### Go
 
 ```sh
 go install github.com/hedhyw/otelinji/cmd/otelinji@latest
+```
+
+### Source
+
+```sh
+git clone git@github.com:hedhyw/otelinji.git
+cd gherkingen
+task build # Requires https://taskfile.dev/
+cp ./bin/gherkingen /usr/local/bin
+chmod +x /usr/local/bin
 ```
 
 ## Usage
@@ -43,8 +63,22 @@ Inject the layer and rewrite the file (be careful, always commit all changes fir
 
 - `otelinji -w -filename input_file.go`
 
+  or in docker
+
+- ```sh
+  docker run \
+        --rm \
+        --read-only \
+        --network none \
+        --rm \
+        --volume $PWD:/host \
+        hedhyw/otelinji:latest \
+        -filename /host/internal/pkg/assets/assets_test.go
+  ```
+
 ### Recursive run
 
+Running for all Go files in the current directory.
 ```sh
 # It will inject the layer to all exported functions.
 # It will ignore vendor and .git folders, test and generated files.
@@ -52,6 +86,23 @@ Inject the layer and rewrite the file (be careful, always commit all changes fir
 find . -name "*.go" \
     | grep -v "vendor/\|.git/\|_test.go" \
     | xargs -n 1 -t otelinji -w -filename
+```
+
+The same in docker:
+```sh
+docker run \
+      --rm \
+      --read-only \
+      --network none \
+      --rm \
+      --volume $PWD:/host \
+      --entrypoint sh \
+      hedhyw/otelinji:latest \
+      -c " \
+            find /host -name \"*.go\" \
+            | grep -v \"vendor/\|.git/\|_test.go\" \
+            | xargs -n 1 -t /app/otelinji -w -filename \
+      "
 ```
 
 ### Help
