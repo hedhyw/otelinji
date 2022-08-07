@@ -9,7 +9,7 @@ linters-settings:
     include:
       - "\\..*Config"
   goimports:
-    local-prefixes: "github.com/hedhyw/otelinj"
+    local-prefixes: "github.com/hedhyw/otelinji"
 
 linters:
   enable-all: true

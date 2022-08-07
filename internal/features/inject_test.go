@@ -7,7 +7,7 @@ import (
 	"github.com/hedhyw/gherkingen/v2/pkg/bdd"
 	"github.com/stretchr/testify/assert"
 
-	"github.com/hedhyw/otelinj/internal/features"
+	"github.com/hedhyw/otelinji/internal/features"
 )
 
 //go:embed inject.exp.test

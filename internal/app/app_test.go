@@ -8,9 +8,9 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/hedhyw/otelinj/internal/app"
-	"github.com/hedhyw/otelinj/internal/features"
-	"github.com/hedhyw/otelinj/internal/pkg/config"
+	"github.com/hedhyw/otelinji/internal/app"
+	"github.com/hedhyw/otelinji/internal/features"
+	"github.com/hedhyw/otelinji/internal/pkg/config"
 )
 
 func TestAppContextDefined(t *testing.T) {
@@ -26,7 +26,7 @@ func Run(ctx context.Context) error {}
 package example
 					
 import (
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 	"go.opentelemetry.io/otel"
 )
 
@@ -59,7 +59,7 @@ func Run(context context.Context) error {}
 package example
 
 import (
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 	"go.opentelemetry.io/otel"
 )
 
@@ -92,7 +92,7 @@ func Run(_ context.Context) error {}
 package example
 
 import (
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 	"go.opentelemetry.io/otel"
 )
 
@@ -127,7 +127,7 @@ func (core) Run(ctx context.Context) error {}
 package example
 
 import (
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 	"go.opentelemetry.io/otel"
 )
 
@@ -164,7 +164,7 @@ func (*core) Run(ctx context.Context) error {}
 package example
 
 import (
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 	"go.opentelemetry.io/otel"
 )
 
@@ -199,7 +199,7 @@ func Run(context.Context) error {}
 package example
 
 import (
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 	"go.opentelemetry.io/otel"
 )
 
@@ -239,7 +239,7 @@ package example
 import (
 	"context"
 
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 	"go.opentelemetry.io/otel"
 )
 
@@ -272,7 +272,7 @@ func Run(ctx context.Context) (err error) {}
 package example
 
 import (
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 	"go.opentelemetry.io/otel"
 )
 
@@ -305,7 +305,7 @@ func Run(ctx context.Context) (err0 error) {}
 package example
 
 import (
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 	"go.opentelemetry.io/otel"
 )
 
@@ -341,7 +341,7 @@ func Run(ctx context.Context) (error) {
 package example
 
 import (
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 	"go.opentelemetry.io/otel"
 )
 
@@ -373,7 +373,7 @@ package example
 import (
 	"context"
 
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 
 	"go.opentelemetry.io/otel"
 )
@@ -386,7 +386,7 @@ package example
 import (
 	"context"
 
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 
 	"go.opentelemetry.io/otel"
 )
@@ -446,7 +446,7 @@ func Run(ctx context.Context) (error) {}
 package example
 
 import (
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 	"go.opentelemetry.io/otel"
 )
 
@@ -481,7 +481,7 @@ func Run(ctx context.Context) (error) {}
 package example
 
 import (
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 	"go.opentelemetry.io/otel"
 )
 
@@ -554,7 +554,7 @@ func RunSecond(ctx context.Context) error {}
 package example
 
 import (
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 	"go.opentelemetry.io/otel"
 )
 

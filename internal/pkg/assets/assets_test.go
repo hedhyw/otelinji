@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/hedhyw/otelinj/internal/pkg/assets"
+	"github.com/hedhyw/otelinji/internal/pkg/assets"
 )
 
 func TestOtelTmpl(t *testing.T) {

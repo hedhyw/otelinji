@@ -1,4 +1,4 @@
-name: check-otelinj
+name: check-otelinji
 
 on:
   push:

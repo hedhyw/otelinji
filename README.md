@@ -1,9 +1,9 @@
-# otelinj
+# otelinji
 
-![Version](https://img.shields.io/github/v/tag/hedhyw/otelinj)
-![Build Status](https://github.com/hedhyw/otelinj/actions/workflows/check.yml/badge.svg)
-[![Go Report Card](https://goreportcard.com/badge/github.com/hedhyw/otelinj)](https://goreportcard.com/report/github.com/hedhyw/otelinj)
-[![Coverage Status](https://coveralls.io/repos/github/hedhyw/otelinj/badge.svg?branch=main)](https://coveralls.io/github/hedhyw/otelinj?branch=main)
+![Version](https://img.shields.io/github/v/tag/hedhyw/otelinji)
+![Build Status](https://github.com/hedhyw/otelinji/actions/workflows/check.yml/badge.svg)
+[![Go Report Card](https://goreportcard.com/badge/github.com/hedhyw/otelinji)](https://goreportcard.com/report/github.com/hedhyw/otelinji)
+[![Coverage Status](https://coveralls.io/repos/github/hedhyw/otelinji/badge.svg?branch=main)](https://coveralls.io/github/hedhyw/otelinji?branch=main)
 
 OpenTelemetry auto-instrumentation tool. It generates code with added OpenTelemetry blocks.
 
@@ -29,7 +29,7 @@ Features:
 ### Go
 
 ```sh
-go install github.com/hedhyw/otelinj/cmd/otelinj@latest
+go install github.com/hedhyw/otelinji/cmd/otelinji@latest
 ```
 
 ## Usage
