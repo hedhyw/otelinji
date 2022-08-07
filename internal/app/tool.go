@@ -2,19 +2,20 @@ package app
 
 import (
 	"context"
+	"database/sql"
 	"fmt"
-	"model"
 )
 
-type repo struct{}
+type User struct{}
 
-func (c repo) GetUser(ctx context.Context, id string) (u model.User, err error) {
-	err = c.db.
-		QueryContext(ctx, `SELECT * FROM users WHERE id = ?`, id).
-		Scan(&u)
-	if err != nil {
-		return model.User{}, fmt.Errorf("quering user: %w", err)
+type repo struct {
+	db *sql.DB
+}
+
+func (c repo) Health(ctx context.Context) (err error) {
+	if err = c.db.PingContext(ctx); err != nil {
+		return fmt.Errorf("db ping: %w", err)
 	}
 
-	return u, nil
+	return nil
 }
