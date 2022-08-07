@@ -1,0 +1,41 @@
+# https://taskfile.dev
+
+version: "3"
+
+vars:
+  GOLANGCI_LINT_VER: v1.47.2
+
+tasks:
+  test:
+    desc: Run tests.
+    cmds:
+      - defer: { cmd: rm -f coverage.out }
+      - go test
+        -covermode=count
+        -coverprofile=coverage.out
+        ./...
+      - go tool cover -func=coverage.out
+
+  lint:
+    desc: "Lint the code"
+    cmds:
+      - docker run --rm
+        --network none
+        --volume "{{.PWD}}:/app:ro"
+        --workdir /app
+        golangci/golangci-lint:{{.GOLANGCI_LINT_VER}}
+        golangci-lint run ./...
+    sources:
+      - ./**/*.go
+      - .golangci.yml
+
+  vendor:
+    desc: "Vendor and tidy"
+    cmds:
+      - go mod tidy
+      - go mod vendor
+
+  run:
+    desc: "Run command. Example: `task run -- --help`"
+    cmds:
+      - go run cmd/otelinji/main.go {{.CLI_ARGS}}

@@ -1,0 +1,46 @@
+// The body from the function `main` will be injected at the start of each function.
+//
+// The comment `//otelinj:check-indents` specifies indents that indicate
+// which injections should be skipped.
+//
+// Specified imports will be added to target files.
+//
+// Template support next arguments:
+// - `CtxParamName` - `ctx` variable name or empty.
+// - `FuncName` - current function name.
+// - `PackageName` - current package name.
+// - `ReceiverType` - current receiver type name or empty.
+// - `IsContextUsed` - indicates either context is used in the function or not.
+// - `ErrResultName` - result name of `err` of empty string.
+//
+// Functions:
+// - `joinWithDot` joins to arguments by a dot, if one of them is empty,
+//                 then the dot will be skipped.
+//
+package main
+
+import (
+    "go.opentelemetry.io/otel"
+    "github.com/hedhyw/otelinj/pkg/otelinji"
+)
+
+
+{{$MethodName := joinWithDot .ReceiverType .FuncName }}
+
+
+//otelinj:check-indents otel,Tracer
+func main() {
+{{if .CtxParamName -}}
+    {{.CtxParamName}}, span := otel.Tracer("{{.PackageName}}").Start({{.CtxParamName}}, "{{$MethodName}}")
+    {{if .ErrResultName}}
+    defer func(){ otelinji.EndSpanWithErr(span, {{.ErrResultName}}) }()
+    {{else}}
+    defer span.End()
+    {{end}}
+    {{if not .IsContextUsed }}
+
+    _ = {{.CtxParamName}}
+    {{end}}
+{{- end}}
+
+}
