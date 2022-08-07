@@ -1,0 +1,95 @@
+package assets
+            	            	
+import (
+	"context"
+
+	"github.com/hedhyw/otelinji/pkg/otelinji"
+	"go.opentelemetry.io/otel"
+)
+
+type Example struct{}
+
+func (Example) ContextSpecified(ctx context.Context) error {
+	ctx, span := otel.Tracer("assets").Start(ctx, "Example.ContextSpecified")
+	defer span.End()
+
+	_ = ctx
+
+	return nil
+}
+
+func (Example) OtelLayerFound(ctx context.Context) error {
+	ctx, span := otel.Tracer("assets").Start(ctx, "OtelLayerFound")
+	defer span.End()
+
+	return nil
+}
+
+func (Example) ContextUsed(ctx context.Context) error {
+	ctx, span := otel.Tracer("assets").Start(ctx, "Example.ContextUsed")
+	defer span.End()
+
+	_, cancel := context.WithCancel(ctx)
+	defer cancel()
+
+	return nil
+}
+
+func (Example) NoContextName(ctx context.Context) error {
+	ctx, span := otel.Tracer("assets").Start(ctx, "Example.NoContextName")
+	defer span.End()
+
+	_ = ctx
+
+	return nil
+}
+
+func (Example) DifferentContextName(context context.Context) error {
+	context, span := otel.Tracer("assets").Start(context, "Example.DifferentContextName")
+	defer span.End()
+
+	_ = context
+
+	return nil
+}
+
+func (Example) NoContext() error {
+	return nil
+}
+
+func (Example) WithoutError(ctx context.Context) {
+	ctx, span := otel.Tracer("assets").Start(ctx, "Example.WithoutError")
+	defer span.End()
+
+	_ = ctx
+
+	return
+}
+
+func (Example) WithNameError(ctx context.Context) (err error) {
+	ctx, span := otel.Tracer("assets").Start(ctx, "Example.WithNameError")
+	defer func() { otelinji.EndSpanWithErr(span, err) }()
+
+	_ = ctx
+
+	return nil
+}
+
+func (Example) WithDifferentErrorName(ctx context.Context) (err0 error) {
+	ctx, span := otel.Tracer("assets").Start(ctx, "Example.WithDifferentErrorName")
+	defer func() { otelinji.EndSpanWithErr(span, err0) }()
+
+	_ = ctx
+
+	return nil
+}
+
+/* Comments here! */
+func (Example) Comments(ctx context.Context) {
+	// Hello world!
+	ctx, span := otel.Tracer("assets").Start(ctx, "Example.Comments")
+	defer span.End()
+
+	_ = ctx
+
+}

@@ -4,8 +4,13 @@ version: "3"
 
 vars:
   GOLANGCI_LINT_VER: v1.47.2
+  GHERKIN_LINT_VER: 1.2.2
 
 tasks:
+  check:
+    desc: Run all checks.
+    deps: ["test", "lint", "lint:gherkin"]
+
   test:
     desc: Run tests.
     cmds:
@@ -27,6 +32,16 @@ tasks:
     sources:
       - ./**/*.go
       - .golangci.yml
+
+  lint:gherkin:
+    desc: "Lint gherkin"
+    cmds:
+      - docker run --rm
+        --interactive
+        --volume "{{.PWD}}:/src"
+        --workdir "/src"
+        --network none
+        gherkin/lint:{{.GHERKIN_LINT_VER}} ./internal/features/*.feature
 
   vendor:
     desc: "Vendor and tidy"
