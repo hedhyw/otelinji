@@ -7,12 +7,26 @@
 
 OpenTelemetry auto-instrumentation tool. It generates code with added OpenTelemetry blocks.
 
-It injects a common open-telemetry block to all exported functions:
+It injects a common open-telemetry block to all exported functions.
+
+For example, if we have a function:
+
+```golang
+func Example(ctx context.Context) {
+   fmt.Println("Example")
+}
+```
+
+Then the tool will add a common trace block:
 
 ```go
 func Example(ctx context.Context) {
-    ctx, span := otel.Tracer("package").Start(ctx, "Readme")
+    ctx, span := otel.Tracer("package").Start(ctx, "Example")
     defer span.End()
+
+    _ = ctx
+
+    fmt.Println("Example")
 }
 ```
 
