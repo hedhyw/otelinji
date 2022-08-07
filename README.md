@@ -7,6 +7,8 @@
 
 OpenTelemetry auto-instrumentation tool. It generates code with added OpenTelemetry blocks.
 
+![OpenTelemetry diff](./assets/diff.png)
+
 It injects a common open-telemetry block to all exported functions.
 
 For example, if we have a function:
@@ -108,7 +110,6 @@ docker run \
       --rm \
       --read-only \
       --network none \
-      --rm \
       --volume $PWD:/host \
       --entrypoint sh \
       hedhyw/otelinji:latest \
