@@ -119,3 +119,7 @@ Usage of otelinji:
         path to template file [optional] (default "@/otel")
   -w    write result to file [optional]
 ```
+
+### License
+
+[MIT](./LICENSE).
