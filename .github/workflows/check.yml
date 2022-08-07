@@ -7,8 +7,8 @@ on:
   pull_request:
 
 jobs:
-  test:
-    name: Test
+  check:
+    name: Check
     runs-on: ubuntu-latest
     steps:
       - name: Set up Go
@@ -26,10 +26,7 @@ jobs:
           version: 3.14.0
 
       - name: Lint
-        run: task lint
-
-      - name: Test
-        run: task test
+        run: task check
 
       - uses: shogo82148/actions-goveralls@v1
         with:
