@@ -3,7 +3,10 @@ package app
 import (
 	"context"
 	"fmt"
+	"model"
 )
+
+type repo struct{}
 
 func (c repo) GetUser(ctx context.Context, id string) (u model.User, err error) {
 	err = c.db.
