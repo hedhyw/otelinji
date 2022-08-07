@@ -5,30 +5,9 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/hedhyw/otelinji)](https://goreportcard.com/report/github.com/hedhyw/otelinji)
 [![Coverage Status](https://coveralls.io/repos/github/hedhyw/otelinji/badge.svg?branch=main)](https://coveralls.io/github/hedhyw/otelinji?branch=main)
 
-OpenTelemetry auto-instrumentation tool. It generates code with added OpenTelemetry blocks.
+OpenTelemetry auto-instrumentation tool. It injects a common tracing block to all exported functions.
 
-It injects a common open-telemetry block to all exported functions.
-
-For example, if we have a function:
-
-```golang
-func Example(ctx context.Context) {
-   fmt.Println("Example")
-}
-```
-
-Then the tool will add a common trace block:
-
-```go
-func Example(ctx context.Context) {
-    ctx, span := otel.Tracer("package").Start(ctx, "Example")
-    defer span.End()
-
-    _ = ctx
-
-    fmt.Println("Example")
-}
-```
+![OpenTelemetry diff](./assets/diff.png)
 
 Features:
 - Custom templates are supported. Example: [template](./internal/pkg/assets/otel.tmpl).
@@ -108,7 +87,6 @@ docker run \
       --rm \
       --read-only \
       --network none \
-      --rm \
       --volume $PWD:/host \
       --entrypoint sh \
       hedhyw/otelinji:latest \
