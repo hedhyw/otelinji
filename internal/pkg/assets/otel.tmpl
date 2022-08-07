@@ -1,6 +1,6 @@
 // The body from the function `main` will be injected at the start of each function.
 //
-// The comment `//otelinj:check-indents` specifies indents that indicate
+// The comment `//otelinji:check-indents` specifies indents that indicate
 // which injections should be skipped.
 //
 // Specified imports will be added to target files.
@@ -21,14 +21,14 @@ package main
 
 import (
     "go.opentelemetry.io/otel"
-    "github.com/hedhyw/otelinj/pkg/otelinji"
+    "github.com/hedhyw/otelinji/pkg/otelinji"
 )
 
 
 {{$MethodName := joinWithDot .ReceiverType .FuncName }}
 
 
-//otelinj:check-indents otel,Tracer
+//otelinji:check-indents otel,Tracer
 func main() {
 {{if .CtxParamName -}}
     {{.CtxParamName}}, span := otel.Tracer("{{.PackageName}}").Start({{.CtxParamName}}, "{{$MethodName}}")

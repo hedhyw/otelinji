@@ -1,4 +1,4 @@
-module github.com/hedhyw/otelinj
+module github.com/hedhyw/otelinji
 
 go 1.18
 

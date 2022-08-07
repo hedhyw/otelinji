@@ -14,8 +14,8 @@ import (
 	"github.com/dave/dst/decorator"
 	"github.com/hedhyw/semerr/pkg/v1/semerr"
 
-	"github.com/hedhyw/otelinj/internal/pkg/assets"
-	"github.com/hedhyw/otelinj/internal/pkg/config"
+	"github.com/hedhyw/otelinji/internal/pkg/assets"
+	"github.com/hedhyw/otelinji/internal/pkg/config"
 )
 
 // App command-line.

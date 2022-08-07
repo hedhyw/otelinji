@@ -84,7 +84,7 @@ func extractImportSpecs(node dst.Node) []*dst.ImportSpec {
 }
 
 func getCheckIndentsCondition(node dst.Node) []string {
-	const prefixCheck = "//otelinj:check-indents "
+	const prefixCheck = "//otelinji:check-indents "
 
 	var comment string
 

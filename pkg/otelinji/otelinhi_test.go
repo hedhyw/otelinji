@@ -10,7 +10,7 @@ import (
 	"go.opentelemetry.io/otel/exporters/stdout/stdouttrace"
 	sdktrace "go.opentelemetry.io/otel/sdk/trace"
 
-	"github.com/hedhyw/otelinj/pkg/otelinji"
+	"github.com/hedhyw/otelinji/pkg/otelinji"
 )
 
 func TestEndSpanWithErrOK(t *testing.T) {

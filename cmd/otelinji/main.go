@@ -4,8 +4,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/hedhyw/otelinj/internal/app"
-	"github.com/hedhyw/otelinj/internal/pkg/config"
+	"github.com/hedhyw/otelinji/internal/app"
+	"github.com/hedhyw/otelinji/internal/pkg/config"
 )
 
 func main() {

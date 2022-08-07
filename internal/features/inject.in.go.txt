@@ -1,0 +1,52 @@
+package assets
+
+import "context"
+
+type Example struct{}
+
+func (Example) ContextSpecified(ctx context.Context) error {
+	return nil
+}
+
+func (Example) OtelLayerFound(ctx context.Context) error {
+	ctx, span := otel.Tracer("assets").Start(ctx, "OtelLayerFound")
+	defer span.End()
+
+	return nil
+}
+
+func (Example) ContextUsed(ctx context.Context) error {
+	_, cancel := context.WithCancel(ctx)
+	defer cancel()
+
+	return nil
+}
+
+func (Example) NoContextName(context.Context) error {
+	return nil
+}
+
+func (Example) DifferentContextName(context context.Context) error {
+	return nil
+}
+
+func (Example) NoContext() error {
+	return nil
+}
+
+func (Example) WithoutError(ctx context.Context) {
+	return
+}
+
+func (Example) WithNameError(ctx context.Context) (err error) {
+	return nil
+}
+
+func (Example) WithDifferentErrorName(ctx context.Context) (err0 error) {
+	return nil
+}
+
+/* Comments here! */
+func (Example) Comments(ctx context.Context) {
+	// Hello world!
+}

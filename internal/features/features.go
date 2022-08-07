@@ -9,8 +9,8 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
-	"github.com/hedhyw/otelinj/internal/app"
-	"github.com/hedhyw/otelinj/internal/pkg/config"
+	"github.com/hedhyw/otelinji/internal/app"
+	"github.com/hedhyw/otelinji/internal/pkg/config"
 )
 
 // RequireRunApp is a test helper that runs the application with provided
