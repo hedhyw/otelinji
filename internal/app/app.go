@@ -130,7 +130,7 @@ func (a *App) processFile(dstFile *dst.File) (err error) {
 
 func (a *App) printNode(out io.Writer, dstFile *dst.File) (err error) {
 	if a.cfg.WriteIntoFile {
-		// nolint: nosnakecase // Std flag.
+		//nolint: nosnakecase // Std flag.
 		f, err := os.OpenFile(a.cfg.FileName, os.O_WRONLY, os.ModePerm)
 		if err != nil {
 			return fmt.Errorf("opening file to write: %w", err)

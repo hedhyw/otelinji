@@ -609,7 +609,7 @@ type appTestCase struct {
 	Expected string
 }
 
-// nolint: thelper // Not a helper.
+// nolint: thelper,nolintlint // Not a helper.
 func (tc appTestCase) Run(tb testing.TB, cfg *config.Config) {
 	cfg.FileName = features.RequireTempFile(tb, []byte(tc.Input))
 
