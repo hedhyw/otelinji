@@ -1,6 +1,7 @@
 package otelinji
 
 import (
+	"go.opentelemetry.io/otel/codes"
 	"go.opentelemetry.io/otel/trace"
 )
 
@@ -11,6 +12,7 @@ func EndSpanWithErr(
 	options ...trace.SpanEndOption,
 ) {
 	if err != nil {
+		span.SetStatus(codes.Error, "error")
 		span.RecordError(err)
 	}
 
