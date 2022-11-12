@@ -3,6 +3,7 @@
 ![Version](https://img.shields.io/github/v/tag/hedhyw/otelinji)
 ![Build Status](https://github.com/hedhyw/otelinji/actions/workflows/check.yml/badge.svg)
 [![Go Report Card](https://goreportcard.com/badge/github.com/hedhyw/otelinji)](https://goreportcard.com/report/github.com/hedhyw/otelinji)
+[![go-recipes](https://raw.githubusercontent.com/nikolaydubina/go-recipes/main/badge.svg?raw=true)](https://github.com/nikolaydubina/go-recipes)
 [![Coverage Status](https://coveralls.io/repos/github/hedhyw/otelinji/badge.svg?branch=main)](https://coveralls.io/github/hedhyw/otelinji?branch=main)
 
 OpenTelemetry auto-instrumentation tool. It injects a common tracing block to all exported functions.
