@@ -3,6 +3,7 @@ package app_test
 import (
 	"bytes"
 	_ "embed"
+	"errors"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -39,10 +40,12 @@ func Run(ctx context.Context) error {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -58,10 +61,12 @@ func Run(ctx context.Context) error {}
 		`,
 		Expected: ``,
 	}.Run(t, &config.Config{
-		WriteIntoFile: true,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    true,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -91,10 +96,12 @@ func Run(context context.Context) error {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -124,10 +131,12 @@ func Run(ctx context.Context) error {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -161,10 +170,12 @@ func (core) Run(ctx context.Context) error {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -198,10 +209,12 @@ func (*core) Run(ctx context.Context) error {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -231,10 +244,12 @@ func Run(ctx context.Context) error {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -271,10 +286,12 @@ func Run(ctx context.Context) error {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -304,10 +321,12 @@ func Run(ctx context.Context) (err error) {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -337,10 +356,12 @@ func Run(ctx context.Context) (err0 error) {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -375,10 +396,12 @@ func Run(ctx context.Context) error {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -419,10 +442,12 @@ func Run(ctx context.Context) error {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -443,10 +468,12 @@ package example
 func Run(ctx context.Context) error {}
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -478,10 +505,12 @@ func Run(ctx context.Context) error {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: false,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    false,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -515,10 +544,12 @@ func Run(ctx context.Context) error {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -551,10 +582,12 @@ func World() {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  features.RequireTempFile(t, []byte(tmpl)),
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     features.RequireTempFile(t, []byte(tmpl)),
 	})
 }
 
@@ -594,10 +627,12 @@ func RunSecond(ctx context.Context) error {
 }
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -616,10 +651,12 @@ package main
 func main() {}
 		`,
 	}.Run(t, &config.Config{
-		WriteIntoFile: false,
-		SkipGenerated: true,
-		FileName:      "",
-		TemplateName:  "",
+		WriteIntoFile:    false,
+		SkipGenerated:    true,
+		OnlyPrintVersion: false,
+		Version:          "v0.0.1",
+		FileName:         "",
+		TemplateName:     "",
 	})
 }
 
@@ -656,10 +693,12 @@ func TestRunInputFailure(t *testing.T) {
 		var out bytes.Buffer
 
 		err := app.New(&config.Config{
-			FileName:      "./not_found",
-			TemplateName:  "",
-			WriteIntoFile: false,
-			SkipGenerated: false,
+			FileName:         "./not_found",
+			TemplateName:     "",
+			WriteIntoFile:    false,
+			SkipGenerated:    false,
+			OnlyPrintVersion: false,
+			Version:          "v0.0.1",
 		}).Run(&out)
 		require.Error(t, err)
 	})
@@ -670,10 +709,28 @@ func TestRunInputFailure(t *testing.T) {
 		var out bytes.Buffer
 
 		err := app.New(&config.Config{
-			TemplateName:  "./not_found",
-			FileName:      okFile,
-			WriteIntoFile: false,
-			SkipGenerated: false,
+			TemplateName:     "./not_found",
+			FileName:         okFile,
+			WriteIntoFile:    false,
+			SkipGenerated:    false,
+			OnlyPrintVersion: false,
+			Version:          "v0.0.1",
+		}).Run(&out)
+		require.Error(t, err)
+	})
+
+	t.Run("empty_file_name", func(t *testing.T) {
+		t.Parallel()
+
+		var out bytes.Buffer
+
+		err := app.New(&config.Config{
+			TemplateName:     "",
+			FileName:         "",
+			WriteIntoFile:    false,
+			SkipGenerated:    false,
+			OnlyPrintVersion: false,
+			Version:          "v0.0.1",
 		}).Run(&out)
 		require.Error(t, err)
 	})
@@ -684,10 +741,12 @@ func TestRunInputFailure(t *testing.T) {
 		var out bytes.Buffer
 
 		err := app.New(&config.Config{
-			FileName:      invalidFile,
-			TemplateName:  "",
-			WriteIntoFile: false,
-			SkipGenerated: false,
+			FileName:         invalidFile,
+			TemplateName:     "",
+			WriteIntoFile:    false,
+			SkipGenerated:    false,
+			OnlyPrintVersion: false,
+			Version:          "v0.0.1",
 		}).Run(&out)
 		require.Error(t, err)
 	})
@@ -698,11 +757,55 @@ func TestRunInputFailure(t *testing.T) {
 		var out bytes.Buffer
 
 		err := app.New(&config.Config{
-			FileName:      okFile,
-			TemplateName:  invalidTemplate,
-			WriteIntoFile: false,
-			SkipGenerated: false,
+			FileName:         okFile,
+			TemplateName:     invalidTemplate,
+			WriteIntoFile:    false,
+			SkipGenerated:    false,
+			OnlyPrintVersion: false,
+			Version:          "v0.0.1",
 		}).Run(&out)
 		require.Error(t, err)
 	})
+}
+
+func TestVersion(t *testing.T) {
+	t.Parallel()
+
+	t.Run("ok", func(t *testing.T) {
+		t.Parallel()
+
+		var out bytes.Buffer
+
+		err := app.New(&config.Config{
+			FileName:         "",
+			TemplateName:     "",
+			WriteIntoFile:    false,
+			SkipGenerated:    false,
+			OnlyPrintVersion: true,
+			Version:          "v0.0.1",
+		}).Run(&out)
+		require.NoError(t, err)
+
+		require.Contains(t, out.String(), "v0.0.1")
+	})
+
+	t.Run("ok", func(t *testing.T) {
+		t.Parallel()
+
+		err := app.New(&config.Config{
+			FileName:         "",
+			TemplateName:     "",
+			WriteIntoFile:    false,
+			SkipGenerated:    false,
+			OnlyPrintVersion: true,
+			Version:          "v0.0.1",
+		}).Run(errWriter{})
+		require.Error(t, err)
+	})
+}
+
+type errWriter struct{}
+
+func (errWriter) Write([]byte) (int, error) {
+	return 0, errors.New("error")
 }

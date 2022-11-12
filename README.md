@@ -110,8 +110,12 @@ Usage of otelinji:
         skip files with DO NOT EDIT comment (default true)
   -template string
         path to template file [optional] (default "@/otel")
+  -version
+        print application version and quit
   -w    write result to file [optional]
 ```
+
+### IDE
 
 ### License
 

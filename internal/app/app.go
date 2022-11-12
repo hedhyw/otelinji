@@ -18,6 +18,10 @@ import (
 	"github.com/hedhyw/otelinji/internal/pkg/config"
 )
 
+const (
+	errFileNameRequired semerr.Error = "required `-filename` is not specified"
+)
+
 // App command-line.
 type App struct {
 	cfg        *config.Config
@@ -35,9 +39,17 @@ func New(cfg *config.Config) *App {
 
 // Run the application and print the result to out.
 func (a *App) Run(out io.Writer) (err error) {
+	if a.cfg.OnlyPrintVersion {
+		return a.processVersion(out)
+	}
+
 	err = a.preapreInjectTemplate()
 	if err != nil {
 		return fmt.Errorf("reading inject template: %w", err)
+	}
+
+	if a.cfg.FileName == "" {
+		return errFileNameRequired
 	}
 
 	inputData, err := os.ReadFile(a.cfg.FileName)
@@ -205,4 +217,14 @@ func getTemplateContent(fileName string) (string, error) {
 	}
 
 	return string(data), nil
+}
+
+func (a *App) processVersion(out io.Writer) (err error) {
+	version := "github.com/hedhyw/otelinji@" + a.cfg.Version + "\n"
+
+	if _, err = out.Write([]byte(version)); err != nil {
+		return fmt.Errorf("writing version: %w", err)
+	}
+
+	return nil
 }
