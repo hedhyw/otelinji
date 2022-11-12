@@ -220,6 +220,10 @@ func isCImportSpec(spec dst.Spec) bool {
 func isGenerated(f dst.Node) (isGen bool) {
 	const commentGenerated = "DO NOT EDIT"
 
+	if f == nil {
+		return false
+	}
+
 	dst.Inspect(f, func(n dst.Node) bool {
 		if n == nil {
 			return true

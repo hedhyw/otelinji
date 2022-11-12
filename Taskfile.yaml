@@ -13,10 +13,17 @@ tasks:
 
   test:
     desc: "Run tests."
+    vars:
+      COVERPACKAGES:
+        sh:
+          go list ./... |
+          grep -Ev 'vendor|features' |
+          tr '\n' ','
     cmds:
       - go test
         -covermode=count
         -coverprofile=coverage.out
+        -coverpkg={{.COVERPACKAGES}}
         ./...
       - go tool cover -func=coverage.out
 
