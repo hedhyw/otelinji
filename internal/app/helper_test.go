@@ -21,13 +21,16 @@ func TestReceiverType(t *testing.T) {
 	assert.Empty(t, receiverType(nil), "nil_func")
 	assert.Empty(t, receiverType(&dst.FuncDecl{Recv: nil}), "nil_func")
 	assert.Empty(t, receiverType(&dst.FuncDecl{
-		Recv: &dst.FieldList{List: []*dst.Field{{Type: nil}}}},
+		Recv: &dst.FieldList{List: []*dst.Field{{Type: nil}}},
+	},
 	), "nil_type")
 	assert.Empty(t, receiverType(&dst.FuncDecl{
-		Recv: &dst.FieldList{List: []*dst.Field{}}},
+		Recv: &dst.FieldList{List: []*dst.Field{}},
+	},
 	), "empty_list")
 	assert.Equal(t, "int", receiverType(&dst.FuncDecl{
-		Recv: &dst.FieldList{List: []*dst.Field{{Type: dst.NewIdent("int")}}}},
+		Recv: &dst.FieldList{List: []*dst.Field{{Type: dst.NewIdent("int")}}},
+	},
 	), "ok")
 }
 
@@ -47,7 +50,8 @@ func TestContextParamNameFromFunc(t *testing.T) {
 		assert.False(t, ok, "nil_params")
 
 		_, ok = contextParamNameFromFunc(&dst.FuncDecl{
-			Type: &dst.FuncType{Params: &dst.FieldList{List: []*dst.Field{nil}}}},
+			Type: &dst.FuncType{Params: &dst.FieldList{List: []*dst.Field{nil}}},
+		},
 		)
 		assert.False(t, ok, "nil_field")
 
@@ -66,7 +70,8 @@ func TestContextParamNameFromFunc(t *testing.T) {
 			Type: &dst.FuncType{Params: &dst.FieldList{List: []*dst.Field{{
 				Type:  dst.NewIdent("context.Context"),
 				Names: []*dst.Ident{dst.NewIdent("ctxTest")},
-			}}}}},
+			}}}},
+		},
 		)
 		if assert.True(t, ok) {
 			assert.Equal(t, "ctxTest", name)
@@ -79,7 +84,8 @@ func TestContextParamNameFromFunc(t *testing.T) {
 		name, ok := contextParamNameFromFunc(&dst.FuncDecl{
 			Type: &dst.FuncType{Params: &dst.FieldList{List: []*dst.Field{{
 				Type: dst.NewIdent("context.Context"),
-			}}}}},
+			}}}},
+		},
 		)
 		if assert.True(t, ok) {
 			assert.Equal(t, "ctx", name)
@@ -120,7 +126,6 @@ func TestErrResultNameFromFunc(t *testing.T) {
 		assert.Empty(t, errResultNameFromFunc(&dst.FuncDecl{
 			Type: &dst.FuncType{Results: &dst.FieldList{List: []*dst.Field{nil}}},
 		}), "nil_result_item")
-
 	})
 
 	t.Run("failed_invalid", func(t *testing.T) {
@@ -296,14 +301,18 @@ func TestIsGenerated(t *testing.T) {
 	assert.False(t, isGenerated(nil), "nil_node")
 	assert.False(t, isGenerated(&dst.BasicLit{}), "empty")
 	assert.False(t, isGenerated(&dst.BlockStmt{List: []dst.Stmt{}}), "nil_item")
-	assert.True(t, isGenerated(&dst.BlockStmt{List: []dst.Stmt{
-		&dst.DeclStmt{Decs: dst.DeclStmtDecorations{
-			NodeDecs: dst.NodeDecs{Start: dst.Decorations{"DO NOT EDIT"}},
-		}}},
+	assert.True(t, isGenerated(&dst.BlockStmt{
+		List: []dst.Stmt{
+			&dst.DeclStmt{Decs: dst.DeclStmtDecorations{
+				NodeDecs: dst.NodeDecs{Start: dst.Decorations{"DO NOT EDIT"}},
+			}},
+		},
 	}), "generated_start")
-	assert.True(t, isGenerated(&dst.BlockStmt{List: []dst.Stmt{
-		&dst.DeclStmt{Decs: dst.DeclStmtDecorations{
-			NodeDecs: dst.NodeDecs{End: dst.Decorations{"DO NOT EDIT"}},
-		}}},
+	assert.True(t, isGenerated(&dst.BlockStmt{
+		List: []dst.Stmt{
+			&dst.DeclStmt{Decs: dst.DeclStmtDecorations{
+				NodeDecs: dst.NodeDecs{End: dst.Decorations{"DO NOT EDIT"}},
+			}},
+		},
 	}), "generated_end")
 }
