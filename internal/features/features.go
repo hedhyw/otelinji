@@ -18,7 +18,7 @@ import (
 func RequireRunApp(tb testing.TB, args ...string) string {
 	tb.Helper()
 
-	cfg, err := config.FromCLI(args)
+	cfg, err := config.FromCLI(args, "v0.0.1")
 	require.NoError(tb, err)
 
 	var buf bytes.Buffer

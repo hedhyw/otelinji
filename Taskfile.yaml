@@ -63,5 +63,10 @@ tasks:
 
   build:
     desc: "Build the application."
+    vars:
+      VERSION:
+        sh: git describe --tags
     cmds:
-      - go build -o ./bin/otelinji cmd/otelinji/main.go
+      - go build 
+        --ldflags "-s -w -X main.version={{.VERSION}}"
+        -o ./bin/otelinji cmd/otelinji/main.go

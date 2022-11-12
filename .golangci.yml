@@ -10,6 +10,8 @@ linters-settings:
       - "\\..*Config"
   goimports:
     local-prefixes: "github.com/hedhyw/otelinji"
+  cyclop:
+    max-complexity: 15
 
 linters:
   enable-all: true

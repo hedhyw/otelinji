@@ -8,8 +8,11 @@ import (
 	"github.com/hedhyw/otelinji/internal/pkg/config"
 )
 
+// Version will be set on build.
+var version = "unknown"
+
 func main() {
-	cfg, err := config.FromCLI(os.Args[1:])
+	cfg, err := config.FromCLI(os.Args[1:], version)
 	if err != nil {
 		log.Fatal(err)
 	}
