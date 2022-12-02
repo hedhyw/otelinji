@@ -12,8 +12,8 @@ github.com/go-logr/stdr v1.2.2/go.mod h1:mMo/vtBO5dYbehREoey6XUKy/eSumjCCveDpRre
 github.com/google/go-cmp v0.5.9 h1:O2Tfq5qg4qc4AmwVlvv0oLiVAGB7enBSJ2x2DqQFi38=
 github.com/hedhyw/gherkingen/v2 v2.4.2 h1:dV+uuARCzFauqNQ/3tyLiiZS3u9BydVv41Z1/Vhny9Q=
 github.com/hedhyw/gherkingen/v2 v2.4.2/go.mod h1:G2CJx1KqOYMIh/mjC6C9LAFN3DA3iel3ra16x0YCXSA=
-github.com/hedhyw/semerr v0.5.0 h1:TzLLGEpMOdJ2H5sU8gpyOb+Cphw5RqLiugVhb413fhM=
-github.com/hedhyw/semerr v0.5.0/go.mod h1:dXid6iLS0L8x6XqXvvtNnQx5SQwY+UYeuSzhptddXlk=
+github.com/hedhyw/semerr v0.5.1 h1:6xxw8qykQryf2SH4zkpEanzN5OYCqv5Z9RHpBjdGXs0=
+github.com/hedhyw/semerr v0.5.1/go.mod h1:hYfWDZfHQOquixGIZvLcl7Jg+fd2TYRmtWPWOuhi/MY=
 github.com/kr/pretty v0.1.0 h1:L/CwN0zerZDmRFUapSPitk6f+Q3+0za1rQkzVuMiMFI=
 github.com/kr/text v0.2.0 h1:5Nx0Ya0ZqY2ygV366QzturHI13Jq95ApcVaJBhpS+AY=
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
