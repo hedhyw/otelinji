@@ -19,7 +19,7 @@ github.com/go-logr/stdr
 # github.com/hedhyw/gherkingen/v2 v2.4.2
 ## explicit; go 1.19
 github.com/hedhyw/gherkingen/v2/pkg/bdd
-# github.com/hedhyw/semerr v0.5.1
+# github.com/hedhyw/semerr v0.5.2
 ## explicit; go 1.17
 github.com/hedhyw/semerr/pkg/v1/semerr
 # github.com/pmezard/go-difflib v1.0.0
