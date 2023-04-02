@@ -40,6 +40,11 @@ linters:
     - noctx
     - nilerr
     - contextcheck
+    - musttag
+    - deadcode
+    - varcheck
+    - ifshort
+    - nosnakecase
 
 issues:
   fix: true
