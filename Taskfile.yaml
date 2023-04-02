@@ -3,7 +3,7 @@
 version: "3"
 
 vars:
-  GOLANGCI_LINT_VER: v1.50.1
+  GOLANGCI_LINT_VER: v1.52.2
   GHERKIN_LINT_VER: 1.2.2
 
 tasks:

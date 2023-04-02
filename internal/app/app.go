@@ -2,6 +2,7 @@ package app
 
 import (
 	"bytes"
+	"errors"
 	"fmt"
 	"go/format"
 	"go/parser"
@@ -148,7 +149,7 @@ func (a *App) printNode(out io.Writer, dstFile *dst.File) (err error) {
 			return fmt.Errorf("opening file to write: %w", err)
 		}
 
-		defer func() { err = semerr.NewMultiError(err, f.Close()) }()
+		defer func() { err = errors.Join(err, f.Close()) }()
 
 		out = f
 	}
