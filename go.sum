@@ -10,8 +10,8 @@ github.com/go-logr/logr v1.2.4/go.mod h1:jdQByPbusPIv2/zmleS9BjJVeZ6kBagPoEUsqbV
 github.com/go-logr/stdr v1.2.2 h1:hSWxHoqTgW2S2qGc0LTAI563KZ5YKYRhT3MFKZMbjag=
 github.com/go-logr/stdr v1.2.2/go.mod h1:mMo/vtBO5dYbehREoey6XUKy/eSumjCCveDpRre4VKE=
 github.com/google/go-cmp v0.5.9 h1:O2Tfq5qg4qc4AmwVlvv0oLiVAGB7enBSJ2x2DqQFi38=
-github.com/hedhyw/gherkingen/v2 v2.4.3 h1:Zqxut9h/Mr0RZxEb9Mh/W4I79txHwRhyJJ8yaGt+QQ4=
-github.com/hedhyw/gherkingen/v2 v2.4.3/go.mod h1:BMoGBWqxrh+noM8O4RmxnVIYXC/Bd/vSWsj1UQmg5U8=
+github.com/hedhyw/gherkingen/v2 v2.5.0 h1:EP+dd+HjfAKJGQgn0fq0x3MJ028SLElnNamiAXHhP0c=
+github.com/hedhyw/gherkingen/v2 v2.5.0/go.mod h1:Soy7UZPy+DYkNYDA7V7O5TJWV2ZryhHD1Hwpf0cN3O8=
 github.com/hedhyw/semerr v0.6.2 h1:d6tSXgqjfURN4dMPZ3tx/gVtx1rigscJrIddfbsj90s=
 github.com/hedhyw/semerr v0.6.2/go.mod h1:dXovLag2ITxB761iC9SHwcX/NXlKjn3epmrMXoqQfRA=
 github.com/kr/pretty v0.3.0 h1:WgNl7dwNpEZ6jJ9k1snq4pZsg7DOEN8hP9Xw0Tsjwk0=
