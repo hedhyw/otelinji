@@ -12,12 +12,9 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-//go:build dragonfly || freebsd || netbsd || openbsd || solaris
-// +build dragonfly freebsd netbsd openbsd solaris
+package trace // import "go.opentelemetry.io/otel/sdk/trace"
 
-package resource // import "go.opentelemetry.io/otel/sdk/resource"
-
-var platformHostIDReader hostIDReader = &hostIDReaderBSD{
-	execCommand: execCommand,
-	readFile:    readFile,
+// version is the current release version of the metric SDK in use.
+func version() string {
+	return "1.16.0-rc.1"
 }
