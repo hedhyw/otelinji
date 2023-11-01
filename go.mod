@@ -3,7 +3,7 @@ module github.com/hedhyw/otelinji
 go 1.20
 
 require (
-	github.com/dave/dst v0.27.2
+	github.com/dave/dst v0.27.3
 	github.com/hedhyw/gherkingen/v2 v2.6.0
 	github.com/hedhyw/semerr v0.6.5
 	github.com/stretchr/testify v1.8.4

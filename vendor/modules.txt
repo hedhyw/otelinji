@@ -1,4 +1,4 @@
-# github.com/dave/dst v0.27.2
+# github.com/dave/dst v0.27.3
 ## explicit; go 1.18
 github.com/dave/dst
 github.com/dave/dst/decorator
