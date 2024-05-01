@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/dave/dst v0.27.3
 	github.com/hedhyw/gherkingen/v2 v2.6.0
-	github.com/hedhyw/semerr v0.6.6
+	github.com/hedhyw/semerr v0.6.7
 	github.com/stretchr/testify v1.9.0
 	go.opentelemetry.io/otel v1.24.0
 	go.opentelemetry.io/otel/exporters/stdout/stdouttrace v1.24.0
