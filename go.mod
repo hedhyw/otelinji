@@ -1,6 +1,6 @@
 module github.com/hedhyw/otelinji
 
-go 1.21
+go 1.22
 
 toolchain go1.22.4
 
@@ -10,8 +10,8 @@ require (
 	github.com/hedhyw/semerr v0.6.7
 	github.com/stretchr/testify v1.9.0
 	go.opentelemetry.io/otel v1.27.0
-	go.opentelemetry.io/otel/exporters/stdout/stdouttrace v1.24.0
-	go.opentelemetry.io/otel/sdk v1.24.0
+	go.opentelemetry.io/otel/exporters/stdout/stdouttrace v1.27.0
+	go.opentelemetry.io/otel/sdk v1.27.0
 	go.opentelemetry.io/otel/trace v1.27.0
 )
 

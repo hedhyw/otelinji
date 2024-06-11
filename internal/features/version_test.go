@@ -17,8 +17,10 @@ func TestVersion(t *testing.T) {
 	/* As a user I want to know the application version. */
 
 	f.Scenario("User wants to know the version", func(t *testing.T, f *bdd.Feature) {
-		var args []string
-		var output string
+		var (
+			args   []string
+			output string
+		)
 
 		f.Given("the user provides the flag \"-version\"", func() {
 			args = append(args, "-version")
