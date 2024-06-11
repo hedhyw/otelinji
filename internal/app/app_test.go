@@ -3,9 +3,9 @@ package app_test
 import (
 	"bytes"
 	_ "embed"
-	"errors"
 	"testing"
 
+	"github.com/hedhyw/semerr/pkg/v1/semerr"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 
@@ -807,5 +807,5 @@ func TestVersion(t *testing.T) {
 type errWriter struct{}
 
 func (errWriter) Write([]byte) (int, error) {
-	return 0, errors.New("error")
+	return 0, semerr.Error("error")
 }

@@ -1,8 +1,6 @@
 run:
   timeout: 5m
   modules-download-mode: vendor
-  skip-dirs:
-    - "internal/infra/inframocks"
 
 linters-settings:
   exhaustruct:
@@ -17,37 +15,31 @@ linters:
   enable-all: true
   disable:
     - funlen
-    - maligned
-    - exhaustivestruct
     - gci
     - wrapcheck
     - varnamelen
     - testpackage
     - exhaustive
     - gomnd
-    - interfacer
-    - scopelint
-    - golint
     - gomoddirectives
     - nonamedreturns
-    # go1.18
     - bodyclose
     - wastedassign
     - tparallel
-    - structcheck
     - sqlclosecheck
     - rowserrcheck
     - noctx
     - nilerr
     - contextcheck
     - musttag
-    - deadcode
-    - varcheck
-    - ifshort
-    - nosnakecase
+    - spancheck
+    - execinquery
+    - depguard
 
 issues:
   fix: true
+  exclude-dirs:
+  - "internal/infra/inframocks"
   exclude-rules:
     - linters:
         - thelper

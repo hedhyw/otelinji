@@ -21,8 +21,10 @@ func TestAddingOpentracingDefinitionToTheFile(t *testing.T) {
 	f.Scenario("User wants to add opentelemetry layers", func(t *testing.T, f *bdd.Feature) {
 		t.Parallel()
 
-		var args []string
-		var output string
+		var (
+			args   []string
+			output string
+		)
 
 		f.Given("the user provides an input file `inject.exp.go.txt`", func() {
 			args = append(args, "-filename", "./inject.in.go.txt")
