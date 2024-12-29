@@ -126,6 +126,10 @@ func errResultNameFromFunc(fnDecl *dst.FuncDecl) (errParamName string) {
 			continue
 		}
 
+		if result.Names[0].Name == "_" {
+			return ""
+		}
+
 		return result.Names[0].Name
 	}
 
