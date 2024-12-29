@@ -2,7 +2,7 @@ module github.com/hedhyw/otelinji
 
 go 1.22
 
-toolchain go1.22.4
+toolchain go1.23.4
 
 require (
 	github.com/dave/dst v0.27.3
