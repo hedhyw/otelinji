@@ -20,7 +20,6 @@ linters:
     - varnamelen
     - testpackage
     - exhaustive
-    - gomnd
     - gomoddirectives
     - nonamedreturns
     - bodyclose
@@ -33,8 +32,8 @@ linters:
     - contextcheck
     - musttag
     - spancheck
-    - execinquery
     - depguard
+    - exportloopref
 
 issues:
   fix: true

@@ -2,8 +2,6 @@ module github.com/hedhyw/otelinji
 
 go 1.22
 
-toolchain go1.23.4
-
 require (
 	github.com/dave/dst v0.27.3
 	github.com/hedhyw/gherkingen/v2 v2.6.0

@@ -22,7 +22,7 @@ const (
 	errNilFuncDecl semerr.Error = "nil func decl"
 )
 
-func (a App) getInjectClause(params map[string]any) (*injectClause, error) {
+func (a *App) getInjectClause(params map[string]any) (*injectClause, error) {
 	var renderBuf bytes.Buffer
 
 	if err := a.injectTmpl.Execute(&renderBuf, params); err != nil {
