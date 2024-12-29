@@ -93,8 +93,26 @@ func (Example) UnnamedArgument(ctx context.Context) error {
 	return nil
 }
 
+func (Example) ManyUnnamedArguments(ctx context.Context, _ int) error {
+	ctx, span := otel.Tracer("assets").Start(ctx, "Example.ManyUnnamedArguments")
+	defer span.End()
+
+	_ = ctx
+
+	return nil
+}
+
 func (Example) DashArgument(ctx context.Context) error {
 	ctx, span := otel.Tracer("assets").Start(ctx, "Example.DashArgument")
+	defer span.End()
+
+	_ = ctx
+
+	return nil
+}
+
+func (Example) ManyDashArguments(ctx context.Context, _ int) error {
+	ctx, span := otel.Tracer("assets").Start(ctx, "Example.ManyDashArguments")
 	defer span.End()
 
 	_ = ctx

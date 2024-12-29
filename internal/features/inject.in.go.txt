@@ -50,7 +50,15 @@ func (Example) UnnamedArgument(context.Context) error {
 	return nil
 }
 
+func (Example) ManyUnnamedArguments(context.Context, int) error {
+	return nil
+}
+
 func (Example) DashArgument(_ context.Context) error {
+	return nil
+}
+
+func (Example) ManyDashArguments(_ context.Context, _ int) error {
 	return nil
 }
 

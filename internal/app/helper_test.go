@@ -78,6 +78,27 @@ func TestContextParamNameFromFunc(t *testing.T) {
 		}
 	})
 
+	t.Run("mixed_unnamed", func(t *testing.T) {
+		t.Parallel()
+
+		fieldContext := &dst.Field{
+			Type: dst.NewIdent("context.Context"),
+		}
+		fieldAnother := &dst.Field{
+			Type: dst.NewIdent("int"),
+		}
+
+		name, ok := contextParamNameFromFunc(&dst.FuncDecl{
+			Type: &dst.FuncType{Params: &dst.FieldList{List: []*dst.Field{fieldContext, fieldAnother}}},
+		},
+		)
+		if assert.True(t, ok) {
+			assert.Equal(t, "ctx", name)
+			assert.Equal(t, name, fieldContext.Names[0].Name)
+			assert.Equal(t, "_", fieldAnother.Names[0].Name)
+		}
+	})
+
 	t.Run("ok_unnamed", func(t *testing.T) {
 		t.Parallel()
 

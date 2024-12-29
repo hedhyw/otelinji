@@ -56,6 +56,8 @@ func contextParamNameFromFunc(fnDecl *dst.FuncDecl) (ctxName string, ok bool) {
 		}
 
 		if len(param.Names) == 0 || param.Names[0] == nil {
+			convertUnnamedToDashes(fnDecl.Type.Params.List)
+
 			param.Names = []*dst.Ident{
 				dst.NewIdent(defContext),
 			}
@@ -74,6 +76,20 @@ func contextParamNameFromFunc(fnDecl *dst.FuncDecl) (ctxName string, ok bool) {
 	}
 
 	return "", false
+}
+
+func convertUnnamedToDashes(fields []*dst.Field) {
+	for _, param := range fields {
+		if param == nil {
+			continue
+		}
+
+		if len(param.Names) == 0 || param.Names[0] == nil {
+			param.Names = []*dst.Ident{
+				dst.NewIdent("_"),
+			}
+		}
+	}
 }
 
 func fieldType(param *dst.Field) string {
