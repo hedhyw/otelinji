@@ -84,6 +84,51 @@ func (Example) WithDifferentErrorName(ctx context.Context) (err0 error) {
 	return nil
 }
 
+func (Example) UnnamedArgument(ctx context.Context) error {
+	ctx, span := otel.Tracer("assets").Start(ctx, "Example.UnnamedArgument")
+	defer span.End()
+
+	_ = ctx
+
+	return nil
+}
+
+func (Example) ManyUnnamedArguments(ctx context.Context, _ int) error {
+	ctx, span := otel.Tracer("assets").Start(ctx, "Example.ManyUnnamedArguments")
+	defer span.End()
+
+	_ = ctx
+
+	return nil
+}
+
+func (Example) DashArgument(ctx context.Context) error {
+	ctx, span := otel.Tracer("assets").Start(ctx, "Example.DashArgument")
+	defer span.End()
+
+	_ = ctx
+
+	return nil
+}
+
+func (Example) ManyDashArguments(ctx context.Context, _ int) error {
+	ctx, span := otel.Tracer("assets").Start(ctx, "Example.ManyDashArguments")
+	defer span.End()
+
+	_ = ctx
+
+	return nil
+}
+
+func (Example) DashReturn(ctx context.Context) (_ error) {
+	ctx, span := otel.Tracer("assets").Start(ctx, "Example.DashReturn")
+	defer span.End()
+
+	_ = ctx
+
+	return nil
+}
+
 /* Comments here! */
 func (Example) Comments(ctx context.Context) {
 	// Hello world!
