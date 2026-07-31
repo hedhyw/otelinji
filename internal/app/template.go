@@ -94,8 +94,8 @@ func getCheckIndentsCondition(node dst.Node) []string {
 		}
 
 		for _, nodeComment := range n.Decorations().Start.All() {
-			if strings.HasPrefix(nodeComment, prefixCheck) {
-				comment = strings.TrimPrefix(nodeComment, prefixCheck)
+			if after, ok := strings.CutPrefix(nodeComment, prefixCheck); ok {
+				comment = after
 
 				return false
 			}

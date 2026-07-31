@@ -1,0 +1,29 @@
+# otelinji
+
+> OpenTelemetry auto-instrumentation CLI tool for Go. It rewrites Go source
+> files, injecting a tracing block (span start + deferred error-recording
+> span end) at the beginning of every exported function. Injection is
+> template-driven, so custom templates allow OpenTracing or any other
+> boilerplate insert at the start of functions.
+
+Module: `github.com/hedhyw/otelinji` (Go). Install:
+`go install github.com/hedhyw/otelinji/cmd/otelinji@latest`, Homebrew
+(`brew install hedhyw/main/otelinji`), or the `hedhyw/otelinji` Docker image.
+
+Key facts:
+- CLI: `otelinji -filename file.go` prints the instrumented file;
+  `-w` rewrites in place; `-template path` overrides the default embedded
+  template; `-skip-generated` (default true) skips `DO NOT EDIT` files.
+- Public helper package `github.com/hedhyw/otelinji/pkg/otelinji` provides
+  `EndSpanWithErr(span, err, ...)`, which the injected code calls.
+- Functions with a named `err` result get the error recorded in the span;
+  differently named `ctx` parameters are detected.
+- Already-instrumented functions are detected via template
+  `//otelinji:check-indents` markers and skipped.
+
+## Docs
+
+- [README](https://github.com/hedhyw/otelinji/blob/main/README.md): installation, basic and recursive usage, Docker examples, CLI help
+- [AGENTS.md](https://github.com/hedhyw/otelinji/blob/main/AGENTS.md): guide for coding agents — CLI/API summary, repo layout, template rules, commands
+- [API reference](https://pkg.go.dev/github.com/hedhyw/otelinji/pkg/otelinji): godoc for the public helper package
+- [Default template](https://github.com/hedhyw/otelinji/blob/main/internal/pkg/assets/otel.tmpl): the injected tracing block and available template arguments
