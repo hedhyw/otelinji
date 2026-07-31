@@ -10,6 +10,15 @@ updates:
     pull-request-branch-name:
       separator: "/"
 
+  - package-ecosystem: "docker"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    commit-message:
+      prefix: "chore(docker)"
+    pull-request-branch-name:
+      separator: "/"
+
   - package-ecosystem: "gomod"
     directory: "/"
     schedule:
