@@ -1,48 +1,67 @@
-run:
-  timeout: 5m
-  modules-download-mode: vendor
-
-linters-settings:
-  exhaustruct:
-    include:
-      - "\\..*Config"
-  goimports:
-    local-prefixes: "github.com/hedhyw/otelinji"
-  cyclop:
-    max-complexity: 15
-
+version: "2"
 linters:
-  enable-all: true
+  default: all
   disable:
-    - funlen
-    - gci
-    - wrapcheck
-    - varnamelen
-    - testpackage
-    - exhaustive
-    - gomoddirectives
-    - nonamedreturns
     - bodyclose
-    - wastedassign
-    - tparallel
-    - sqlclosecheck
-    - rowserrcheck
-    - noctx
-    - nilerr
     - contextcheck
-    - musttag
-    - spancheck
     - depguard
-    - exportloopref
-
+    - exhaustive
+    - funlen
+    - gomoddirectives
+    - musttag
+    - nilerr
+    - noctx
+    - noinlineerr
+    - nonamedreturns
+    - rowserrcheck
+    - spancheck
+    - sqlclosecheck
+    - testpackage
+    - tparallel
+    - varnamelen
+    - wastedassign
+    - wrapcheck
+  settings:
+    cyclop:
+      max-complexity: 15
+    exhaustruct:
+      include:
+        - \..*Config
+  exclusions:
+    generated: lax
+    presets:
+      - comments
+      - common-false-positives
+      - legacy
+      - std-error-handling
+    rules:
+      - linters:
+          - thelper
+        source: ^.*f\.Scenario.*$
+      - linters:
+          - err113
+          - goconst
+        path: ^.+_test.go$
+    paths:
+      - internal/infra/inframocks
+      - third_party$
+      - builtin$
+      - examples$
 issues:
   fix: true
-  exclude-dirs:
-  - "internal/infra/inframocks"
-  exclude-rules:
-    - linters:
-        - thelper
-      source: "^.*f\\.Scenario.*$"
-    - linters:
-        - goerr113
-      path: "^.+_test.go$"
+formatters:
+  enable:
+    - gofmt
+    - gofumpt
+    - goimports
+  settings:
+    goimports:
+      local-prefixes:
+        - github.com/hedhyw/otelinji
+  exclusions:
+    generated: lax
+    paths:
+      - internal/infra/inframocks
+      - third_party$
+      - builtin$
+      - examples$
