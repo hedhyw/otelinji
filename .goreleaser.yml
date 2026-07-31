@@ -1,3 +1,5 @@
+version: 2
+
 builds:
   - binary: otelinji
     main: ./cmd/otelinji
@@ -28,7 +30,8 @@ archives:
       - LICENSE
     format_overrides:
       - goos: windows
-        format: zip
+        formats:
+          - zip
 
 release:
   draft: true
@@ -58,6 +61,9 @@ brews:
     repository:
       owner: hedhyw
       name: homebrew-main
+      # Cross-repo push requires a PAT; the built-in GITHUB_TOKEN cannot
+      # write to other repositories.
+      token: "{{ .Env.HOMEBREW_TAP_GITHUB_TOKEN }}"
     test: system "#{bin}/otelinji", "-help"
     install: |-
       bin.install "otelinji"
