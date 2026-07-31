@@ -40,10 +40,10 @@ go install github.com/hedhyw/otelinji/cmd/otelinji@latest
 
 ```sh
 git clone git@github.com:hedhyw/otelinji.git
-cd gherkingen
+cd otelinji
 task build # Requires https://taskfile.dev/
-cp ./bin/gherkingen /usr/local/bin
-chmod +x /usr/local/bin
+cp ./bin/otelinji /usr/local/bin
+chmod +x /usr/local/bin/otelinji
 ```
 
 ## Usage
