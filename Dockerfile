@@ -7,7 +7,7 @@ COPY . .
 
 RUN go build -o /build/otelinji cmd/otelinji/main.go
 
-FROM alpine:3.22
+FROM alpine:3.24
 
 WORKDIR /app
 COPY --from=builder /build/otelinji /app/otelinji
